@@ -1,0 +1,5 @@
+# @package _global_
+config:
+    GCN_MODE: True
+    TRAIN:
+        MAX_EPOCHS: 100

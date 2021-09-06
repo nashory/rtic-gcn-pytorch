@@ -1,0 +1,87 @@
+# @package _global_
+config:
+    PROJ_ROOT: "/data/private/workspace/rtic-gcn-pytorch/rtic-gcn-pytorch"
+    DATA_ROOT: "/data/public/rw/datasets/fashion-iq"
+    SEED: 12345
+    GPU_ID: 0
+    EXPR_NAME: devel
+    LOAD_FROM: ""
+    GCN_MODE: False
+    IMAGE_SIZE: 256
+    CROP_SIZE: 224
+    LOGGING:
+        PRINT_FREQ: 5
+        TEST_FREQ: 5
+        LOG_FREQ: 100
+        CKPT_FREQ: -1 # -1: save last epoch model only.
+    TRAIN:
+        MAX_EPOCHS: 100
+        BATCH_SIZE: 32
+        TRANSFORM_STYLE: standard
+        MODEL:
+            spell_correction: False
+            word_embedding_init: glove
+            normalize_scale: 4
+            out_feature_image: 1024
+            out_feature_text: 1024
+            in_feature_text: 1100
+            text_model:
+                name: lstm
+                params:
+                    lstm:
+                        num_layers: 1
+                    lstm_gru:
+                        num_layers: 1
+            image_model:
+                name: resnet50
+                pretrained: True
+            composer_model:
+                name: rtic
+                params:
+                    image_only:
+                        input_img_dim: -1
+                        input_txt_dim: -1
+                        output_dim: -1
+                    text_only: null
+                    concat: null
+                    mrn: null
+                    film: null
+                    tirg: null
+                    compose_ae: null
+                    rtic:
+                        n_blocks: 4
+                        arch: d
+                        act_fn: LeakyReLU
+                    param_hash: null
+                    block: null
+                    mutan: null
+                    mlb: null
+                    mfb: null
+                    mfh: null
+                    mcb: null
+            gcn_model:
+                gcn_type: a
+                lrp: 0.48
+                tau: 0.25
+                ratio: 0.10
+                fixed_lrp: 0.1
+                load_pretrained_composer: False
+                weight_balance: False
+                gcn_hidden_dim: 1024
+                gradient_clipping: False
+                terminate_when_gradient_overflow: True
+        LOSS: batch_based_xent
+        OPTIMIZER:
+            name: sgd
+            policy: step_lr
+            momentum: 0.9
+            beta1: 0.55
+            beta2: 0.998
+            lr:
+                base_lr: 0.01
+                base_lr_batch_size: 32
+                auto_scale: True
+            warmup_ratio: 0.1
+            lrp: 0.1
+            lr_decay_factor: 0.70710678
+            lr_decay_steps: [10,20,30,40,50,60,70,80,90]

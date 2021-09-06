@@ -1,0 +1,1 @@
+from .fiq import FashionIQDataset

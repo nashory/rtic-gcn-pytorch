@@ -1,0 +1,49 @@
+# @package _global_
+config:
+    TRAIN:
+        MAX_EPOCHS: 100
+        TERMINATE_WHEN_GRADIENT_OVERFLOW: True
+        BATCH_SIZE: 24
+        TRANSFORM_STYLE: optimize
+        LOSS: batch_hard_triplet
+        MODEL:
+            spell_correction: True
+            word_embedding_init: glove
+            normalize_scale: 4.82
+            out_feature_image: 2048
+            out_feature_text: 2048
+            in_feature_text: 1100
+            text_model:
+                name: lstm_gru
+                params:
+                    lstm_gru:
+                        num_layers: 2
+            image_model:
+                name: resnet152
+                pretrained: True
+            composer_model:
+                params:
+                    rtic:
+                        n_blocks: 1
+                        act_fn: LeakyReLU
+            gcn_model:
+                lrp: 1.0
+                tau: 0.445
+                ratio: 0.198
+                fixed_lrp: 0.018
+                load_pretrained_composer: False
+                weight_balance: False
+                gcn_hidden_dim: 1024
+                gradient_clipping: False
+                terminate_when_gradient_overflow: True
+        OPTIMIZER:
+            name: adamw
+            policy: linear_warmup_cosine
+            beta1: 0.624
+            beta2: 0.998
+            warmup_ratio: 0.15
+            lr:
+                base_lr: 0.0001421
+                base_lr_batch_size: 32
+                auto_scale: True
+            lrp: 0.652
