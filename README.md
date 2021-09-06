@@ -1,5 +1,5 @@
 # RTIC: Residual Learning for Text and Image Composition using Graph Convolutional Network
-This is the official code of [RTIC: Residual Learning for Text and Image Composition using Graph Convolutional Network](https://arxiv.org/abs/2104.03015). The code only supports training and evaluation on FashionIQ. We release the implementations for the other baselines together.
+This is the official code of RTIC: Residual Learning for Text and Image Composition using Graph Convolutional Network. The code only supports training and evaluation on FashionIQ. We release the implementations for the other baselines together.
 
 ![banner](img/banner.png)
 
@@ -91,25 +91,6 @@ EXPR_NAME=testrun_gcn LOAD_FROM=testrun python main.py \
     config.TRAIN.MODEL.composer_model.name=<any-composer-method-you-want-to-try> \
     config.LOAD_FROM=${LOAD_FROM} \
     config.EXPR_NAME=${EXPR_NAME}
-~~~
-
-## Visualization
-
-**Feature Distribution before and after GCN layers**
-
-<img src="img/before_gcn.gif" width=240></img><img src="img/after_gcn.gif" width=240></img>
-
-## Citation
-
-Please cite our paper if you enjoyed ;)
-
-~~~
-@article{shin2021rtic,
-  title={RTIC: Residual Learning for Text and Image Composition using Graph Convolutional Network},
-  author={Shin, Minchul and Cho, Yoonjae and Ko, Byungsoo and Gu, Geonmo},
-  journal={arXiv preprint arXiv:2104.03015},
-  year={2021}
-}
 ~~~
 
 ## License
