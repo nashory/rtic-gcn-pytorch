@@ -54,14 +54,14 @@ We provide sample training script to run on different configurations.
 The default configurations are stored in `cfg/default.yaml` which represents "unified environmet" in our paper.
 To try with "optimal environment", please use `+optimize=<someting>` option.
 
-**RTIC (unified env)**
+**(1) RTIC (unified env)**
 
 ~~~
 EXPR_NAME=testrun python main.py \
     config.EXPR_NAME=${EXPR_NAME}
 ~~~
 
-**RTIC (optimal env)**
+**(2) RTIC (optimal env)**
 
 ~~~
 EXPR_NAME=testrun python main.py \
@@ -69,7 +69,7 @@ EXPR_NAME=testrun python main.py \
     config.EXPR_NAME=${EXPR_NAME}
 ~~~
 
-**RTIC-GCN (optimal env, scratch)**
+**(3) RTIC-GCN (optimal env, scratch)**
 
 ~~~
 EXPR_NAME=testrun_gcn LOAD_FROM=testrun python main.py \
@@ -79,7 +79,7 @@ EXPR_NAME=testrun_gcn LOAD_FROM=testrun python main.py \
     config.EXPR_NAME=${EXPR_NAME}
 ~~~
 
-**RTIC-GCN (optimal env, finetune)**
+**(4) RTIC-GCN (optimal env, finetune)**
 
 ~~~
 EXPR_NAME=testrun_gcn LOAD_FROM=testrun python main.py \
@@ -89,7 +89,7 @@ EXPR_NAME=testrun_gcn LOAD_FROM=testrun python main.py \
     config.EXPR_NAME=${EXPR_NAME}
 ~~~
 
-**Any Other Baselines**
+**(5) Other Baselines**
 
 you can train any other baselines by simply changing `config.TRAIN.MODEL.composer_model.name`.
 
@@ -112,12 +112,14 @@ EXPR_NAME=testrun_gcn LOAD_FROM=testrun python main.py \
 ## Citation
 If you find this work useful for your research, please cite our paper:
 
+~~~
 @article{shin2021rtic,
   title={RTIC: Residual Learning for Text and Image Composition using Graph Convolutional Network},
   author={Shin, Minchul and Cho, Yoonjae and Ko, Byungsoo and Gu, Geonmo},
   journal={arXiv preprint arXiv:2104.03015},
   year={2021}
 }
+~~~
 
 ## License
 [MIT License](https://raw.githubusercontent.com/nashory/rtic-gcn-pytorch/main/LICENSE)
