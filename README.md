@@ -45,7 +45,7 @@ RTIC-GCN (finetune) | 40.64 | [ckpt](https://drive.google.com/file/d/1mIPYRXdTPf
 | CoSMo                         | 39.45                      | [pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Lee_CoSMo_Content-Style_Modulation_for_Image_Retrieval_With_Text_Feedback_CVPR_2021_paper.pdf)                                                                                                                         |
 | RTIC w/ GloVe                 | 39.22                      | -                                                                                                                                                                                                                                                                                  |
 | RTIC-GCN w/ GloVe (scratch)   | 39.55                      | -                                                                                                                                                                                                                                                                                  |
-| RTIC-GCN w/ GloVe (fine-tune) | \textbf{40.64}                      | -      
+| RTIC-GCN w/ GloVe (fine-tune) | **40.64**                      | -      
 
 
 
